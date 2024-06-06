@@ -21,3 +21,9 @@ supports:
 In other words, we have the full CIC augmented with extensionality principles
 and quotients. I think that all the expected beta/eta equalities hold by
 definition, but I haven't checked thoroughly.
+
+-------
+
+Alternatively, we can put the equalities in Type, which provides us with
+unique choice/function comprehension at the cost of losing impredicative
+quantification. Tradeoffs...
