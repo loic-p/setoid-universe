@@ -1,0 +1,174 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{10}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Altenkirch(1999)]%
+        {altenkirch99}
+\bibfield{author}{\bibinfo{person}{Thorsten Altenkirch}.}
+  \bibinfo{year}{1999}\natexlab{}.
+\newblock \showarticletitle{Extensional equality in intensional type theory}.
+  In \bibinfo{booktitle}{\emph{Proceedings. 14th Symposium on Logic in Computer
+  Science (Cat. No. PR00158)}}. \bibinfo{pages}{412--420}.
+\newblock
+\showISSN{1043-6871}
+\urldef\tempurl%
+\url{https://doi.org/10.1109/LICS.1999.782636}
+\showDOI{\tempurl}
+
+
+\bibitem[Altenkirch et~al\mbox{.}(2021)]%
+        {setoid_univ}
+\bibfield{author}{\bibinfo{person}{Thorsten Altenkirch}, \bibinfo{person}{Simon
+  Boulier}, \bibinfo{person}{Ambrus Kaposi}, \bibinfo{person}{Christian
+  Sattler}, {and} \bibinfo{person}{Filippo Sestini}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Constructing a universe for the setoid model}. In
+  \bibinfo{booktitle}{\emph{Foundations of Software Science and Computation
+  Structures}}, \bibfield{editor}{\bibinfo{person}{Stefan Kiefer} {and}
+  \bibinfo{person}{Christine Tasson}} (Eds.). \bibinfo{publisher}{Springer
+  International Publishing}, \bibinfo{address}{Cham}, \bibinfo{pages}{1--21}.
+\newblock
+\showISBNx{978-3-030-71995-1}
+
+
+\bibitem[Altenkirch et~al\mbox{.}(2007)]%
+        {altenkirchAl:plpv2007}
+\bibfield{author}{\bibinfo{person}{Thorsten Altenkirch}, \bibinfo{person}{Conor
+  McBride}, {and} \bibinfo{person}{Wouter Swierstra}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Observational equality, now!}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Workshop on Programming
+  Languages meets Program Verification (PLPV 2007)}}. \bibinfo{pages}{57--68}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1292597.1292608}
+\showDOI{\tempurl}
+
+
+\bibitem[Hofmann(1995a)]%
+        {hofmann1995conservativity}
+\bibfield{author}{\bibinfo{person}{Martin Hofmann}.}
+  \bibinfo{year}{1995}\natexlab{a}.
+\newblock \showarticletitle{Conservativity of equality reflection over
+  intensional type theory}. In \bibinfo{booktitle}{\emph{International Workshop
+  on Types for Proofs and Programs}}. Springer, \bibinfo{pages}{153--164}.
+\newblock
+
+
+\bibitem[Hofmann(1995b)]%
+        {hofmann95}
+\bibfield{author}{\bibinfo{person}{Martin Hofmann}.}
+  \bibinfo{year}{1995}\natexlab{b}.
+\newblock \emph{\bibinfo{title}{Extensional concepts in intensional type
+  theory}}.
+\newblock \bibinfo{thesistype}{Ph.\,D. Dissertation}.
+  \bibinfo{school}{University of Edinburgh}.
+\newblock
+
+
+\bibitem[Hofmann(1995c)]%
+        {hofmann_setoids}
+\bibfield{author}{\bibinfo{person}{Martin Hofmann}.}
+  \bibinfo{year}{1995}\natexlab{c}.
+\newblock \showarticletitle{A simple model for quotient types}. In
+  \bibinfo{booktitle}{\emph{Typed Lambda Calculi and Applications}},
+  \bibfield{editor}{\bibinfo{person}{Mariangiola Dezani-Ciancaglini} {and}
+  \bibinfo{person}{Gordon Plotkin}} (Eds.). \bibinfo{publisher}{Springer Berlin
+  Heidelberg}, \bibinfo{address}{Berlin, Heidelberg},
+  \bibinfo{pages}{216--234}.
+\newblock
+\showISBNx{978-3-540-49178-1}
+
+
+\bibitem[Martin-L{\"o}f(1971)]%
+        {itt}
+\bibfield{author}{\bibinfo{person}{Per Martin-L{\"o}f}.}
+  \bibinfo{year}{1971}\natexlab{}.
+\newblock \bibinfo{title}{An Intuitionistic Theory of Types}.
+\newblock
+\newblock
+\newblock
+\shownote{Unpublished manuscript}.
+
+
+\bibitem[Pujet and Tabareau(2022)]%
+        {pujet:hal-03367052}
+\bibfield{author}{\bibinfo{person}{Lo{\"i}c Pujet} {and}
+  \bibinfo{person}{Nicolas Tabareau}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Observational Equality: Now For Good}}.
+\newblock \bibinfo{journal}{\emph{{Proceedings of the ACM on Programming
+  Languages}}} \bibinfo{volume}{6}, \bibinfo{number}{POPL}
+  (\bibinfo{date}{Jan.} \bibinfo{year}{2022}), \bibinfo{pages}{1--29}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3498693}
+\showDOI{\tempurl}
+
+
+\bibitem[Sterling et~al\mbox{.}(2022)]%
+        {xtt}
+\bibfield{author}{\bibinfo{person}{Jonathan Sterling}, \bibinfo{person}{Carlo
+  Angiuli}, {and} \bibinfo{person}{Daniel Gratzer}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{A Cubical Language for Bishop Sets}}.
+\newblock \bibinfo{journal}{\emph{Logical Methods in Computer Science}}
+  \bibinfo{volume}{18} (\bibinfo{date}{March} \bibinfo{year}{2022}).
+\newblock
+Issue 1.
+\urldef\tempurl%
+\url{https://doi.org/10.46298/lmcs-18(1:43)2022}
+\showDOI{\tempurl}
+\showeprint[arXiv]{2003.01491}~[cs.LO]
+
+
+\bibitem[Winterhalter et~al\mbox{.}(2019)]%
+        {winterhalter_ett}
+\bibfield{author}{\bibinfo{person}{Th{\'e}o Winterhalter},
+  \bibinfo{person}{Matthieu Sozeau}, {and} \bibinfo{person}{Nicolas Tabareau}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{Eliminating Reflection from Type Theory}}. In
+  \bibinfo{booktitle}{\emph{{CPP 2019 - 8th ACM SIGPLAN International
+  Conference on Certified Programs and Proofs}}}. \bibinfo{publisher}{{ACM}},
+  \bibinfo{address}{Lisbonne, Portugal}, \bibinfo{pages}{91--103}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3293880.3294095}
+\showDOI{\tempurl}
+
+
+\end{thebibliography}

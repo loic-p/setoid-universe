@@ -1,0 +1,558 @@
+\usepackage{hyperref}
+\usepackage{anyfontsize} % kill warnings about font sizes
+\usepackage{amsmath}     % Mathematics FTW!
+\usepackage[capitalise]{cleveref}
+%\usepackage{amsthm}      % Warning, I've only proven it correct :).
+%\usepackage{amssymb}     % needed for \mathbb and mathcal
+%\usepackage{bbm}
+\usepackage[english]{babel}
+%\usepackage{amsbsy}      % for \boldsymbol
+%\usepackage{stmaryrd}   % provides some PLy symbols, like Scott Brackets
+\usepackage{mathpartir}  % for \mathpar
+\usepackage{color}
+\usepackage{braket}      % for \set and \braket
+\usepackage{mathtools}   % for \bigtimes
+\usepackage{thmtools}    % to duplicate theorems in the appendix
+%\usepackage{marvosym} % for deniarius (gradual label)
+%\usepackage{wasysym}     % for \smiley
+%\usepackage{balance}     % for the references
+\usepackage{xspace}
+%\usepackage{mathrsfs} % for mathscr font
+\usepackage{proof}
+% \usepackage{yhmath}
+\usepackage{rotating}
+\usepackage[Symbol]{upgreek} % upright greek letters
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage{centernot}
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{xparse}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{darkgreen}{rgb}{0.0, 0.55, 0.13}
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+\definecolor{darkviolet}{rgb}{0.58, 0.0, 0.83}
+\definecolor{lightblue}{rgb}{0.68, 0.85, 0.9}
+\usepackage{lstcoq}
+% Literate Agda
+% \usepackage{agda}
+\usepackage[all]{xy}
+\usepackage{stmaryrd}
+\usepackage{subcaption,verbatim}
+\usepackage[utf8x]{inputenc}
+% \usepackage{agda-syntax}
+\usepackage[outline]{contour}
+
+
+\DeclareMathAlphabet{\mathbbm}{U}{bbm}{m}{n}
+
+%% hack to get upright greek letters
+\renewcommand{\Omega}{\Upomega}
+\renewcommand{\Pi}{\Uppi}
+\renewcommand{\Sigma}{\Upsigma}
+\renewcommand{\Gamma}{\Upgamma}
+\renewcommand{\Delta}{\Updelta}
+
+\makeatletter
+% \@ifpackageloaded{stix}{%
+% }{%
+%   \DeclareFontEncoding{LS2}{}{\noaccents@}
+%   \DeclareFontSubstitution{LS2}{stix}{m}{n}
+%   \DeclareSymbolFont{stix@largesymbols}{LS2}{stixex}{m}{n}
+%   \SetSymbolFont{stix@largesymbols}{bold}{LS2}{stixex}{b}{n}
+%   \DeclareMathDelimiter{\lBrace}{\mathopen} {stix@largesymbols}{"E8}%
+%                                             {stix@largesymbols}{"0E}
+%   \DeclareMathDelimiter{\rBrace}{\mathclose}{stix@largesymbols}{"E9}%
+%                                             {stix@largesymbols}{"0F}
+% }
+\makeatother
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n} % Reset mathcal font because ACM version sucks
+
+% Comment form:  requires amssymb and color
+
+\newcommand{\mynote}[2]
+    {{\color{red} \fbox{\bfseries\sffamily\scriptsize#1}
+    {\small$\blacktriangleright$\textsf{\emph{#2}}$\blacktriangleleft$}}~}
+
+\definecolor{propcolor}{HTML}{3F7D31}
+\definecolor{mypurple}{HTML}{5B069D}
+\newcommand{\myproposal}[2]
+    {{\color{propcolor} \fbox{\bfseries\sffamily\scriptsize#1}
+    {\small$\blacktriangleright$\textsf{\emph{#2}}$\blacktriangleleft$}}~}
+
+\newcommand{\nt}[1]{\mynote{NT}{#1}}
+\newcommand{\lp}[1]{\mynote{LP}{#1}}
+\newcommand{\jc}[1]{\mynote{JC}{#1}}
+\newcommand{\tw}[1]{\mynote{TW}{#1}}
+\newcommand{\pmp}[1]{\mynote{PMP}{#1}}
+
+% Grey Box
+\definecolor{lightgray}{gray}{0.90}
+\newcommand{\Gbox}[1]{\colorbox{lightgray}{$#1$}}
+
+% text
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\etal}{\emph{
+    et al.}\xspace}
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\natP}{\mathbb{N}_\mathbb{P}}
+\newcommand{\bool}{\mathsf{Bool}}
+
+\newcommand{\slogan}[1]{\begin{center}``\emph{#1}''\end{center}}
+
+\newcommand{\agdahtml}{https://htmlpreview.github.io/?https://github.com/CoqHott/logrel-mltt/blob/impredicativity-cast-compute-refl/html/}
+\newcommand{\refAgdaRoot}[1]{{\small{\href{\agdahtml/#1.html}{\emph{[#1.agda]}}}}}
+\newcommand{\refAgdaDef}[1]{{\small{\href{\agdahtml/Definition.#1.html}{\emph{[#1.agda]}}}}}
+\newcommand{\refAgda}[2]{{\small{\href{\agdahtml/Definition.#1.#2.html}{\emph{[#2.agda]}}}}}
+\newcommand{\refCoq}[1]{{\color{darkblue}\emph{[#1]}}}
+% \newcommand{\vrefCoq}[2]{\href{https://github.com/TheoWinterhalter/template-coq/tree/rewrite-rules/pcuic/theories/#1}{\emph{[#2]}}}
+\newcommand{\vrefCoq}[2]{\href{https://github.com/TheoWinterhalter/template-coq/tree/popl21-artifact/pcuic/theories/#1}{\emph{[#2]}}}
+
+
+% \newcommand{\Coq}{${\mathrm{Coq}}$\xspace}
+\newcommand{\MLTT}{\ensuremath{\mathsf{MLTT}}\xspace}
+\newcommand{\sMLTT}{\ensuremath{\mathsf{sMLTT}}\xspace}
+\newcommand{\ETT}{\ensuremath{\mathsf{ETT}}\xspace}
+\newcommand{\HTS}{\ensuremath{\mathsf{HTS}}\xspace}
+\newcommand{\SetoidTT}{\ensuremath{\mathsf{TT}^\mathrm{obs}}\xspace}
+\newcommand{\SetoidCC}{\ensuremath{\mathsf{CC}^\mathrm{obs}}\xspace}
+\newcommand{\SetoidCIC}{\ensuremath{\mathsf{CIC}^\mathrm{obs}}\xspace}
+\newcommand{\CIC}{\ensuremath{\mathsf{CIC}}\xspace}
+
+\newcommand{\UIP}{${\mathrm{UIP}}$\xspace}
+
+\newcommand{\bbfamily}{\fontencoding{U}\fontfamily{bbold}\selectfont}
+% \DeclareMathAlphabet{\mathbbold}{U}{bbold}{m}{n}
+\newcommand{\Two}{\omega}
+%% \newcommand{\Two}{{\color{white}\contour{blga}}
+\newcommand{\independent}{\emptyset}
+
+\newcommand{\prop}{\prim{Prop}}
+\newcommand{\Univ}{\oblset{Univ}}
+\newcommand{\hProp}{\oblset{hProp}}
+\def\Coq{\textsc{Coq}\xspace}
+\def\Agda{\textsc{Agda}\xspace}
+\def\Lean{\textsc{Lean}\xspace}
+\def\Idris{\textsc{Idris}\xspace}
+% \newcommand{\Agda}{${\mathrm{Agda}}$\xspace}
+% \newcommand{\Lean}{${\mathrm{Lean}}$\xspace}
+% \newcommand{\Cedille}{${\mathrm{Cedille}}$\xspace}
+\newcommand{\CICU}{${\mathrm{CIC}}_u$\xspace}
+\newcommand{\RTT}{${\mathrm{RTT}}$\xspace}
+\def\MetaCoq{\textsc{MetaCoq}\xspace}
+
+\newcommand{\subst}[3][x]{#2[{#1}:={#3}]}
+
+\newcommand\dashPar{\vdash}%_{p}}
+
+\newcommand{\sizeName}{\mathtt{size}}
+\newcommand{\size}[1]{\sizeName(#1)}
+
+\newcommand{\wfctx}[2][]{#1 \vdash #2}
+\newcommand{\eqctx}[2]{\vdash #1 \equiv #2}
+\newcommand{\tytm}[4][]{#1 #2 \vdash #3 : #4}
+\newcommand{\tytmPara}[4][]{#1 #2 \dashPar #3 : #4}
+\newcommand{\tm}[2]{#1 : #2}
+\newcommand{\tytms}{\tytm}
+\newcommand{\eqtm}[5][]{#1 #2 \vdash #3 \equiv #4 : #5}
+\newcommand{\nered}[4]{#1 \vdash #2 \Rightarrow_{ne} #3 : #4}
+\newcommand{\neconv}[4]{#1 \vdash #2 \cong_{ne} #3 : #4}
+\newcommand{\neconvRed}[4]{#1 \vdash #2 \cong_{ne}^\downarrow #3 : #4}
+\newcommand{\whnfconv}[4]{#1 \vdash #2 \cong #3 : #4}
+\newcommand{\whnfconvRed}[4]{#1 \vdash #2 \cong^\downarrow #3 : #4}
+\newcommand{\red}[5][]{#1 #2 \vdash #3 \Rightarrow #4 : #5}
+\newcommand{\redT}[5][]{#1 #2 \vdash #3 \Rightarrow^* #4 : #5}
+\newcommand{\eqtmmultiline}[6][]{#1 #2 \vdash \begin{array}{l} #3
+                                                \equiv \\
+                                                #4 \end{array} : #5 : #6}
+\newcommand{\redmultiline}[5][]{#1 #2 \vdash \begin{array}{l} #3 \Rightarrow \\ #4 \end{array} : #5}
+\newcommand{\redmultilineExt}[6][]{#1 #2 \vdash \begin{array}{l} #3 \Rightarrow \\ #4 \\ #5 \end{array} : #6}
+
+\newcommand{\eqproj}[3]{#1_\epsilon^{#2}~#3}
+\newcommand{\propext}{\sProp{}_\mathrm{ext}}
+\newcommand{\funext}{\Pi_\mathrm{ext}}
+
+\newcommand{\tytyR}[4]{#2 \Vdash_{#1} #3 : #4}
+\newcommand{\tytmR}[5]{#2 \Vdash_{#1} #3 : #4 : #5}
+\newcommand{\ctxV}[1]{\Vdash^v #1}
+\newcommand{\tytyV}[4]{#2 \Vdash^v_{#1} #3 : #4}
+\newcommand{\tytyS}[3]{#1 \Vdash^s #2 : #3}
+\newcommand{\tytmV}[5]{#2 \Vdash^v_{#1} #3 : #4 : #5}
+\newcommand{\nattmR}[2]{#1 \Vdash_{\mathbb{N}\mathsf{t}}\ {#2}}
+\newcommand{\nateqR}[3]{#1 \Vdash_{\mathbb{N}\mathsf{t}=}\ {#2} \equiv {#3}}
+\newcommand{\quotmR}[2]{#1 \Vdash_Q\ {#2}}
+\newcommand{\quoeqR}[3]{#1 \Vdash_Q\ {#2} \equiv {#3}}
+\newcommand{\idtmR}[2]{#1 \Vdash_\mathrm{Id}\ {#2}}
+\newcommand{\ideqR}[3]{#1 \Vdash_\mathrm{Id}\ {#2} \equiv {#3}}
+\newcommand{\eqtyR}[5]{#2 \Vdash_{#1} #3 \equiv #4 : #5}
+\newcommand{\eqtyS}[4]{#1 \Vdash^s #2 \equiv #3 : #4}
+\newcommand{\eqtmR}[6]{#2 \Vdash_{#1} #3 \equiv #4 : #5 : #6}
+\newcommand{\eqtmV}[6]{#2 \Vdash^v_{#1} #3 \equiv #4 : #5 : #6}
+\newcommand{\wk}[3]{{#1}}% : {#2} \le {#3}}
+\newcommand{\wkrho}{(\rho : \Delta \sqsubseteq \Gamma)}
+\newcommand{\wkrhoshort}{\wkrho}
+
+\newcommand{\metatm}[2]{{#1} :: {#2}}
+\newcommand{\metaforall}[2]{\forall {#1},\ {#2}}
+\newcommand{\metaimply}[2]{{#1}\ \to\ {#2}}
+
+\newcommand{\emptyctx}{\bullet}
+\newcommand{\extctx}[3][x]{#2 , \tm{#1}{#3}}
+\newcommand{\inctx}[4][x]{\tmannotated{#1}{#3}{#4}{} \in {#2}}
+
+\newcommand{\Type}{\mathsf{Type}}
+\newcommand{\SProp}{\mathsf{SProp}}
+\newcommand{\Prop}{\mathsf{Prop}}
+
+\newcommand{\forded}[1]{#1 _\mathbb{F}}
+\newcommand{\eqpi}[2][]{#2 _\epsilon^{#1}}
+\newcommand{\appi}[1]{#1 _{ap}}
+\newcommand{\Depsum}[3][x]{\Sigma (\tm{#1}{#2}).\, {#3}}
+\newcommand{\Depfun}[3][x]{\Pi (\tm{#1}{#2}).\, {#3}}
+\newcommand{\Fun}[2]{{#1} \to {#2}}
+\newcommand{\Sig}[3][x]{\Sigma (\tm{#1}{#2}).\, {#3}}
+\newcommand{\Prod}[2]{{#1} \land {#2}}
+\newcommand{\Exists}[3][x]{(\tm{#1}{#2}) \ \& \ {#3}}
+\newcommand{\varExists}[3][x]{\exists (\tm{#1}{#2})\ .\ {#3}}
+\newcommand{\ExistsUnique}[3][x]{\exists! (\tm{#1}{#2})\ .\ {#3}}
+\newcommand{\Path}[3][]{#2 \sim_{#1} #3}
+\newcommand{\eqInd}[3]{\mathrm{eq}_{#1} \, #2 \, #3}
+\newcommand{\Empty}{\bot}
+\newcommand{\botP}{\bot_{\mathbb{P}}}
+\newcommand{\Unit}{\top}
+\newcommand{\Quo}[2]{{#1}/{#2}}
+\newcommand{\Id}[3]{\metaop{Id}(#1,#2,#3)}
+\newcommand{\Boxt}[1]{\square{#1}}
+\newcommand{\Squash}[1]{\| #1 \|}
+\newcommand{\CubicalPath}{\metaop{Path}}
+\newcommand{\List}[1]{\mathtt{list} \, #1}
+
+\newcommand\metaop[1]{{\color{RoyalBlue}{\mathrm{#1}}}}
+
+\newcommand{\piRel}[2]{\mathcal{R} ( #1 , #2)}
+\newcommand{\univRel}[2]{\mathcal{A} ( #1 , #2)}
+
+\newcommand{\lstop}[1]{\textrm{\coqeN{#1}}\xspace}
+\newcommand{\lstops}[1]{\textrm{\lstinline[language=Coq, basicstyle=\small,escapechar=*]{#1}}\xspace}
+
+\newcommand{\emptyrec}[2]{\mathtt{\color{darkblue} \bot\mathrm{-} elim}~{#1}~{#2}}
+\newcommand{\unit}{*}
+\newcommand{\zero}{{\color{darkblue} 0}}
+\newcommand{\sucName}{\mathtt{\color{darkblue} S}}
+\newcommand{\suc}[1]{\sucName\ #1}
+\newcommand{\natrec}[4]{\mathtt{\color{darkblue} \mathbb{N}\mathrm{-} elim}~{#1}~{#2}~{#3}~{#4}}
+\newcommand{\lam}[3][x]{\lambda (\tm{#1}{#2}).\, #3}
+\newcommand{\pair}[2]{\langle #1 , #2 \rangle }
+\newcommand{\fst}[1]{\metaop{fst}({#1})}
+\newcommand{\snd}[1]{\metaop{snd}({#1})}
+% \newcommand{\refl}[2]{\lstop{refl}~#1}
+\newcommand{\refl}[2]{\mathtt{\color{darkblue} refl}~#1}
+\newcommand{\reflI}[2]{\mathtt{\color{darkblue} refl}~#1}
+\newcommand{\sym}[1]{{#1}^{-1}}
+\newcommand{\transitivity}[2]{{#1}\cdot{#2}}
+\newcommand{\ap}[2]{\lstop{ap}~{#1}~{#2}}
+\newcommand{\castName}{\lstop{cast}}
+% \newcommand{\cast}[4]{{\castName~#1~#2~#3~#4}}
+\newcommand{\cast}[4]{{\mathtt{\color{darkblue} cast}~#1~#2~#3~#4}}
+\newcommand{\castI}[4]{{\mathtt{\color{darkblue} cast}~#1~#2~#3~#4}}
+\newcommand{\transportName}{\lstop{transp}}
+% \newcommand{\transport}[6]{\transportName~#1~#2~#3~#4~#5~#6}
+\newcommand{\transport}[6]{\mathtt{\color{darkblue} transport}~#1~#2~#3~#4~#5~#6}
+\newcommand{\transportI}[6]{\mathtt{\color{darkblue} transport}~#1~#2~#3~#4~#5~#6}
+\newcommand{\castreflName}{\metaop{castrefl}}
+\newcommand{\castrefl}[2]{\castreflName(#1,#2)}
+\newcommand{\quo}[1]{\pi(#1)}
+\newcommand{\quorec}[4]{\metaop{Q\mathrm{-}elim}(#1,#2,#3,#4)}
+\newcommand{\id}[1]{\metaop{Idrefl}(#1)}
+\newcommand{\idpath}[1]{\metaop{Idpath}(#1)}
+\newcommand{\J}[6]{\metaop{J}(#1,#2,#3,#4,#5,#6)}
+\newcommand{\eqJ}[5]{\metaop{eq_J}(#1,#2,#3,#4,#5)}
+\newcommand{\boxt}[1]{\diamond{#1}}
+\newcommand{\unboxt}[1]{\metaop{\Box\mathrm{-elim}}(#1)}
+\newcommand{\squash}[1]{| #1 |}
+\newcommand{\unsquash}[3]{\metaop{\mathrm{S}\mathrm{-elim}}(#1,#2,#3)}
+\newcommand{\nil}{\mathtt{nil}}
+\newcommand{\cons}[2]{\mathtt{cons} \, #1 \, #2}
+
+\newcommand\head[1]{\mathop{\text{hd}}#1}
+\newcommand\whnf[1]{\mathop{\text{whnf}}#1}
+\newcommand\neutral[1]{\mathop{\text{neutral}} #1}
+\newcommand\postype[1]{\mathop{\text{posType}}#1}
+
+
+
+\newcommand{\tmannotated}[3]{#1 : #2 : #3}%{#1 :^{#3} #2}
+\newcommand{\extctxannotated}[4][x]{#2 , \tmannotated{#1}{#3}{#4}{}}
+\newcommand{\tytmannotated}[5][]{#1 #2 \vdash \tmannotated{#3}{#4}{#5}}
+\newcommand{\tytmParaannotated}[5][]{#1 #2 \dashPar \tmannotated{#3}{#4}{#5}}
+\newcommand{\eqtmannotated}[6][]{#1 #2 \vdash #3 \equiv #4 : #5 : #6}
+\newcommand{\algoeqtmannotated}[6][]{#1 #2 \vdash #3 \cong^\downarrow #4 : #5 : #6}
+\newcommand{\eqtmParaannotated}[6][]{#1 #2 \dashPar #3 \equiv #4 : #5 : #6}
+\newcommand{\redannotated}[5][]{#1 #2 \vdash #3 \Rightarrow #4 : #5}
+\newcommand{\Depfunannotated}[6][x]{\Pi_{}^{#5, #6} (\tm{#1}{#2}).\, {#3}}
+\newcommand{\Depsumannotated}[6][x]{\Sigma_{#4,#5}^{#6} (\tm{#1}{#2}).\, {#3}}
+\newcommand{\Existsannotated}[5][x]{(\tm{#1}{#2}) \ \& \ {#3}}
+
+\newcommand{\Con}{\mathsf{Con}}
+\newcommand{\cwfty}[1][]{\mathsf{Ty}_{#1}}
+\newcommand{\cwftm}[1][]{\mathsf{tm}_{#1}}
+\newcommand{\cwfprop}[1][]{\mathsf{Pr}_{#1}}
+\newcommand{\cwfpr}[1][]{\mathsf{pr}_{#1}}
+
+\newcommand{\Setoid}{\mathsf{Setoid}}
+\newcommand{\metasProp}{\mathsf{Prop}}
+\newcommand{\metanat}{\boldsymbol{\omega}}
+\newcommand{\metazero}{0}
+\newcommand{\metasuc}[1]{\mathsf{S}\ #1}
+\newcommand{\metaempty}{\bot}
+\newcommand{\metaunit}{\top}
+\newcommand{\metarefl}{\mathsf{refl}}
+
+\renewcommand{\ne}{N}
+
+\newcommand{\Context}{\AgdaData{Context}}
+\newcommand{\Term}{\AgdaData{Term}}
+\newcommand{\Sort}{\AgdaData{Sort}}
+
+\newcommand{\VU}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\AgdaCon{U}}}
+\newcommand{\VOmega}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\textcolor{AgdaInductiveConstructor} \Omega}}
+\newcommand{\Vempty}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\textcolor{AgdaInductiveConstructor} \bot}}
+\newcommand{\Vpi}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\textcolor{AgdaInductiveConstructor} \Pi}}
+\newcommand{\Vforall}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\textcolor{AgdaInductiveConstructor} \forall}}
+\newcommand{\Vexists}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\textcolor{AgdaInductiveConstructor} \&}}
+\newcommand{\Vnat}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\AgdaCon{N}}}
+\newcommand{\Vne}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\AgdaCon{ne}}}
+\newcommand{\Vemb}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\AgdaCon{emb}}}
+\newcommand{\VX}{{\textcolor{AgdaInductiveConstructor} \Vdash}_{\AgdaCon{X}}}
+
+\newcommand{\RU}{\AgdaCon{R}_{\AgdaCon{U}}}
+\newcommand{\ROmega}{\AgdaCon{R}_{\textcolor{AgdaInductiveConstructor} \Omega}}
+\newcommand{\Rempty}{\AgdaCon{R}_{\textcolor{AgdaInductiveConstructor} \bot}}
+\newcommand{\Rpi}{\AgdaCon{R}_{\textcolor{AgdaInductiveConstructor} \Pi}}
+\newcommand{\Rforall}{\AgdaCon{R}_{\textcolor{AgdaInductiveConstructor} \forall}}
+\newcommand{\Rexists}{\AgdaCon{R}_{\textcolor{AgdaInductiveConstructor} \exists}}
+\newcommand{\Rnat}{\AgdaCon{R}_{\AgdaCon{N}}}
+\newcommand{\Rne}{\AgdaCon{R}_{\AgdaCon{ne}}}
+\newcommand{\Remb}{\AgdaCon{R}_{\AgdaCon{emb}}}
+
+\newcommand{\sV}{\mathbf{V}}
+\newcommand{\sU}{\mathbf{U}}
+\newcommand{\Upred}[1][i]{\mathsf{code}_{#1}}
+\newcommand{\sType}{\mathbf{s}}
+\newcommand{\ssProp}{\Omega}
+\newcommand{\sFun}[2]{#1 \to_s #2}
+\newcommand{\sEq}[2]{#1 = #2}
+\newcommand{\el}{\mathsf{el}}
+\newcommand{\eleq}{\mathsf{el\text{-}eq}}
+\newcommand{\val}{\mathsf{val}}
+\newcommand{\valeq}{\mathsf{val\text{-}eq}}
+\newcommand{\codeemb}{\mathsf{c}_\mathsf{emb}}
+\newcommand{\codenat}{\mathsf{c}_\mathsf{N}}
+\newcommand{\codepi}{\mathsf{c}_{\Pi}}
+\newcommand{\codepiuu}{\mathsf{c}_{\Pi\mathsf{UU}}}
+\newcommand{\codepisu}{\mathsf{c}_{\Pi\Omega\mathsf{U}}}
+\newcommand{\codepius}{\mathsf{c}_{\Pi\mathsf{U}\Omega}}
+\newcommand{\codepiss}{\mathsf{c}_{\Pi\Omega\Omega}}
+\newcommand{\codeex}{\mathsf{c}_{\exists}}
+\newcommand{\codeU}{\mathsf{c}_\mathsf{U}}
+\newcommand{\codesProp}{\mathsf{c}_{\sProp}}
+\newcommand{\codeInd}{\mathsf{c}_\mathsf{ind}}
+\newcommand{\codeempty}{\mathsf{c}_\bot}
+\newcommand{\codequo}{\mathsf{c}_Q}
+
+\newcommand{\mctx}[1]{\llbracket\ #1\ \rrbracket}
+\newcommand{\mty}[2][\Gamma]{\llbracket {#2} \rrbracket_{#1}}
+\newcommand{\mtm}[3][\Gamma]{[\tm{#2}{#3}]_{#1}}
+
+\newcommand{\bnfis}{::=}
+\newcommand{\bnfin}{\in}
+\newcommand{\sep}{|}
+\newcommand{\qsep}{\ | \ }
+
+% Automatically insert parentheses
+\newcommand{\maybeparens}[2]{%
+  \ifthenelse{\isempty{#2}}{#1}{%  if argument is empty
+  \ifthenelse{\equal{#2}{(}}{#1#2}{%  or (, then do not parenthesize
+  #1(#2)}}} % otherwise, parenthesize
+\newcommand{\tdom}{\mathrm{dom}}
+\newcommand{\dom}{\maybeparens{\tdom}}
+\newcommand{\tPV}{\mathrm{PV}}
+\newcommand{\PV}{\maybeparens{\tPV}}
+\newcommand{\tFV}{\mathrm{FV}}
+\newcommand{\FV}{\maybeparens{\tFV}}
+
+\newcommand{\joinsub}{\uplus}%{\|}
+\newcommand{\Joinsub}{\biguplus}%{\|}
+
+\newcommand{\mathsc}[1]{\ensuremath{\textsc{#1}}}
+\newcommand{\rulename}[1]{{\footnotesize\mathsc{#1}}}
+\newcommand{\nru}[3]{\dfrac{\begin{array}{@{}c@{}}#1\end{array}}{\begin{array}{@{}c@{}}#2\end{array}}\ifthenelse{\isempty{#3}}{}{\ \rulename{#3}}}
+\newcommand{\ru}[2]{\nru{#1}{#2}{}}
+
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+% Referencing figures
+\newcommand{\figref}[1]{\myref{Fig.}{fig:#1}}
+\newcommand{\secref}[1]{\myref{Sect.}{sec:#1}}
+\newcommand{\defref}[1]{\myref{Definition}{def:#1}}
+\newcommand{\lemref}[1]{\myref{Lemma}{lem:#1}}
+\newcommand{\thmref}[1]{\myref{Theorem}{thm:#1}}
+\newcommand{\eqnref}[1]{\hyperref[#1]{(\ref{#1})}}
+\newcommand{\exref}[1]{\myref{Example}{ex:#1}}
+
+
+
+% Agda highlighting macros
+%% \newcommand{\data}[1]{{\AgdaDatatype{#1}}}
+%% \newcommand{\record}[1]{{\AgdaRecord{#1}}}
+%% \newcommand{\func}[1]{{\AgdaFunction{#1}}}
+%% \newcommand{\prim}[1]{{\AgdaPrimitive{#1}}}
+%% \newcommand{\primty}[1]{{\AgdaPrimitiveType{#1}}}
+%% \newcommand{\sset}[1]{{\prim{Set}_{#1}}}
+%% \newcommand{\var}[1]{{\AgdaBound{#1}}}
+%% \newcommand{\keyw}[1]{{\AgdaKeyword{#1}}}
+%% \newcommand{\con}[1]{{\AgdaInductiveConstructor{#1}}}
+%% \newcommand{\field}[1]{{\AgdaField{#1}}}
+%% \newcommand{\proj}[1]{\field{.#1}}
+%% \newcommand{\pragma}[2]{\texttt{\{-\# } \AgdaKeyword{\texttt{#1}}\ #2 \texttt{ \#-\}}}
+
+%% \newcommand{\Id}[1]{\mathrel{{\AgdaPrimitiveType{\equiv}}_{#1}}}
+%% \newcommand{\Leq}{\mathrel{\AgdaDatatype{\leq}}}
+%% \newcommand{\Simeq}{\mathrel{\AgdaRecord{\simeq}}}
+%% \newcommand{\sumtype}{\mathrel{\AgdaDatatype{\uplus}}}
+%% \newcommand{\prodtype}{\mathrel{\AgdaDatatype{\times}}}
+
+%% \newcommand{\pat}[1]{\AgdaKeyword{?}#1}
+
+%% \newcommand{\Nat}{{\color{AgdaDatatype}\mathbb{N}}}
+%% \newcommand{\myNat}{\func{N}}
+%% \newcommand{\vect}[2]{\func{Vec} \ #1 \ #2}
+%% \newcommand{\myZero}{\func{zero}}
+%% \newcommand{\Sone}{\func{$S^1$}}
+%% \newcommand{\base}{\func{base}}
+%% \newcommand{\Loop}{\func{loop}}
+%% \newcommand{\mySucc}{\func{suc}}
+%% \newcommand{\myNatRec}{\func{elim}}%_{\myNat}}
+%% \newcommand{\myCatch}{\func{catch}}
+%% \newcommand{\myRaise}{{\func{raise}}}
+%% \newcommand{\Exc}{\AgdaPostulate{$\mathbb{E}$}}
+%% \newcommand{\Int}{\data{\mathbb{Z}}}
+%% \newcommand{\toptype}{{\color{AgdaDatatype}\top}}
+%% \newcommand{\bottomtype}{\data{\bot}}
+%% \newcommand{\sigmatype}{\data{\Sigma}}
+%% \newcommand{\Bool}{{\color{AgdaDatatype}\mathbb{B}}}
+%% \newcommand{\myMax}{\AgdaFun{max}}
+
+%% \newcommand{\Fin}{\data{Fin}}
+%% \newcommand{\fzero}{\con{fzero}}
+%% \newcommand{\fsuc}{\con{fsuc}}
+%% \newcommand{\lezero}{\con{lz}}
+%% \newcommand{\lesuc}{\con{ls}}
+%% \newcommand{\refl}{\con{refl}}
+%% \newcommand{\reflbar}{\overline{\con{refl}}}
+%% \newcommand{\zero}{\con{zero}}
+%% \newcommand{\suc}{\con{suc}}
+%% \newcommand{\true}{\con{true}}
+%% \newcommand{\false}{\con{false}}
+%% \newcommand{\J}{\prim{J}}
+%% \newcommand{\K}{\prim{K}}
+
+%% \newcommand{\zero}{{\color{AgdaDatatype}\mathsf{0}}}
+%% \newcommand{\succ}{{\color{AgdaDatatype}\mathsf{S}}}
+%% \newcommand{\ty}[1][]{{\color{AgdaDatatype}\square}_{#1}}
+%% \newcommand{\natind}{\Nat_{\mathsf{ind}}}
+%% \newcommand{\natind}{\myNatRec}
+
+%% \newcommand{\rwRule}[4]{#1 \ctxrw \cmd{#2}{#3} \rwred #4}
+
+%% \newcommand{\cmd}[2]{\langle #1 \mid #2 \rangle}
+%% \newcommand{\cmdEval}[2]{\mathrm{eval}\, ( #1 \mid #2 )}
+%% \newcommand{\zip}[2]{\mathsf{zip}(#1,\ #2)}
+%% \newcommand{\zip}[2]{\mathsf{zip}(#1 \mid #2)}
+%% \newcommand{\ctxrw}{\rightthreetimes}
+%% \newcommand{\ctxrw}{\ltimes}
+%% \newcommand{\confluent}{\downdownarrows}
+%% \newcommand{\force}[1]{{\Downarrow}(#1)}
+%% \newcommand{\patt}[1]{\AgdaKeyword{#1}}
+%% \newcommand{\patt}[1]{{#1}}
+%% \newcommand{\pattinst}[3]{#2 [ #3 ]_{#1}}
+%% \newcommand{\force}[1]{{\patt{\Downarrow}}(#1)}
+%% \newcommand{\erp}[1]{#1^{-}}
+%% \newcommand\cored{\leftsquigarrow}
+%% \newcommand{\rectype}[1]{\mathfrak{#1}}
+%% \newcommand{\recmk}[2]{\lBrace{#2}\rBrace}
+%% \newcommand{\recproj}[3]{{#2}._{#1} #3}
+%% \newcommand{\stkproj}[2]{{\diamond}._{#1} #2}
+%% \newcommand{\stkproj}[2]{{\diamond}.#2}
+%% \newcommand{\stkapply}[1]{\diamond\ #1}
+%% \newcommand{\inst}{\Rightarrow}
+%% \newcommand{\patstk}{\mathbb{S}}
+%% \newcommand{\patframe}{\mathbb{F}}
+
+%% \newcommand{\reds}{\red^\star}
+%% \newcommand{\coreds}{\cored^\star}
+
+%% \newcommand\pos[2]{{% we make the whole thing an ordinary symbol
+%%   \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+%%   #1 % the function
+%%   % \vphantom{\big|} % pretend it's a little taller at normal size
+%%   \right|_{#2} % this is the delimiter
+%%   }}
+
+
+%% \newcommand\optRedName{\rho}
+%% \newcommand\optRed[1]{\optRedName(#1)}
+%% \def\paraRed{\Rrightarrow}
+%% %\def\red{\rightarrow}
+%% \newcommand\closure[1]{#1^*}
+%% \def\Cred{\closure{\red}}
+
+%% \newcommand\mgu[2]{\textit{MGU}(#1,#2)}
+
+%% \newcommand{\RewContext}{\mathcal{R}}
+%% \newcommand{\RewOrder}{\succ}
+
+%% \newcommand\whnfName[1]{\mathtt{whnf}_{#1}}
+%% \newcommand\whnf[2]{\whnfName{#1}(#2)}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Reference to inference rules, inspired by https://tex.stackexchange.com/questions/340788/cross-referencing-inference-rules
+
+\makeatletter
+\let\originferrule\inferrule
+\DeclareDocumentCommand \inferrule { s O {} m m }{%
+	\IfBooleanTF{#1}%
+	{%
+		\mpr@inferstar[#2]{#3}{#4}%
+	}{%
+		\mpr@inferrule[#2]{#3}{#4}%
+	}%
+  % Modification of the SO code: we reuse the main label
+	\IfValueT{#2}%
+	{%
+		\my@name@inferrule{#2}%
+	}%
+}
+\NewDocumentCommand \my@name@inferrule { m }{%
+	\def\@currentlabelname{\textsc{#1}}%
+}
+
+% \DeclareDocumentCommand \redrule {o m m}{%
+% 	\IfValueTF{#1}
+% 	{\textsc{#1}: \; #2 \redCCIC #3 \my@name@inferrule{#1}}
+% 	{#2 \redCCIC #3}
+% }
+
+\newcommand*{\ilabel}[1]{%
+  % \edef\@currentlabel{#1}% Set target label
+  \phantomsection% Correct hyper reference link
+  \label{#1}% Print and store label
+}
+\makeatother
